@@ -1,36 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>A love letter</title>
 </head>
+
 <body>
-    
-    <h1></h1>
-    <p></p>
+
+    <h1><b>Hello and Welcome!</b></h1>
+
+    <p id="message"></p>
+
+    <div id="buttondiv" class="buttondiv">
+        <button type="button" , id="button" , onclick="changeText()"><b>Press to start >></b></button>
+    </div>
+    <p2 id="signature"><i>- Dani</i></p2>
+    <footer>10. 10. 2024</footer>
+
+
+    <script>
+        var i = 0
+        async function changeText() {
+            function delay(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+            //messages
+            const messages = [
+                "Hi babyyyy!!!! \nWelcome to my little project I decided to make for you. \nThrough this little website I'll write you little love letters, tell you about my day, share random fun facts about myself or stuff I'm interested in (YOUUUU &lt33333, etc)... so make sure to check in often!!",
+                "As u can probably see the page is a bit bare-bones atm, consisting of only a bunch of text boxes and style thingies, but thats cause im learing <b>three</b> new languages as im making this! As I learn more I'll continue adding new features and quirks for u to enjoy. I promise I'll make it prettier than it is now!!!!",
+                "For now I just want to mention how much you really mean to me. The past 10 months have truly been an amazing period for me thanks to you. I feel like I've grown a lot as a person since I met you and I <b>couldn't be happier</b> to be growing up with you by my side. I've learned a lot from you and I'm still learing so much every day. You've also inspired me to become more productive, my room has never been tidier and my grades have never been better!! I've also rebooted a few courses on Udemy that I gave up on because I want to learn and perfect myself as much as I can for u while also future proofing myself (ourselves I pray) with different skills and certificates.",
+                "Majra, we've faced our share of ups and downs, no doubt. But please remember, no matter what, youll always hold a special place in my heart. Arguments happen, they hurt us, that's normal. But with every challenge, with enough patience and with the strength to say <b>I'm sorry</b> and <b>I forgive you</b> our bond only grows stronger, deeper, more resilient than ever. \nNot a moment has gone by where you didn't grace my mind. I think of you all the time no matter what I do, and I'm really sorry you don't get to feel that from me sometimes, but know it's true ;(",
+                "It's getting pretty late as I write this, and though I feel as I can write about you without end, I have a pretty busy day tomorrow so I'm going to have to cut it short. I'ts hopefully the day I get to hold you close once again and hand you the key to this page in person.",
+                "Sweet dreams, my dear.",
+                "<b>I love you.</b>"
+            ]
+            const pageCount = messages.length
+
+            //elements
+            const buttondiv = document.getElementById('buttondiv')
+            const button = document.getElementById("button")
+            const message = document.getElementById("message")
+            const signature = document.getElementById("signature")
+            //fade out
+            for (const property in messages)
+                message.style.opacity = 0
+            console.log(messages[i])
+            console.log(pageCount)
+            console.log(i)
+            await delay(500)
+            buttondiv.style.opacity = 0
+
+            await delay(1000)
+
+            //fade in
+            message.innerHTML = messages[i]
+            button.innerHTML = "<b>Press to continue >></b>"
+            message.style.opacity = 1
+            if (pageCount >= i+2) {
+                await delay(500)
+                buttondiv.style.opacity = 1
+            }else{
+                console.log("No more pages")
+                button.disabled = true
+                await delay(1000)
+                signature.style.opacity = 1
+            }
+
+            i++
+
+        }
+
+    </script>
 </body>
 
 </html>
-
-<style>
-    html{
-        background-color: black;
-
-        animation: 5s infinite alternate ease-out breathing-color--dark;
-
-    }
-
-    @keyframes breathing-color--dark {
-    from
-    {
-        background-color: black;
-    }
-    to
-    {
-        background-color: hsl(0, 0%, 20%);
-    }
-}
-    
-
-</style>
