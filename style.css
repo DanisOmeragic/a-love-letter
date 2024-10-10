@@ -17,7 +17,7 @@ html {
         font-family: 'Courier New', Courier, monospace;
         font-size: large;
         opacity: 0;
-        transition: opacity 3s;
+        transition: opacity 10s;
     }
 
     footer {
